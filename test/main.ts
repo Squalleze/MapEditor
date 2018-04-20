@@ -1,0 +1,3 @@
+class EditorElementList {
+  list: array;
+}

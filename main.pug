@@ -1,0 +1,95 @@
+// output: $1.html, pretty: false
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Editor
+    link(rel="stylesheet", type="text/css", href="main.css")
+  body
+    div.horizontal
+      aside#pick
+      aside#menu
+        //- div &laquo;
+        form
+          fieldset
+            legend Map
+            label #[input(type="number" value=800)] Width
+            label #[input(type="number" value=400)] Height
+            label #[input(type="number" value=10)] Gravity
+            label #[input(type="number" value=0)] Wind
+            label(title="N") #[input(type="checkbox")] Soul mate
+            label(title="N") #[input(type="checkbox")] Collision
+            label(title="N") #[input(type="checkbox")] Portal
+            label(title="N") #[input(type="checkbox")] Night
+            label(title="Ca") #[input(type="checkbox")] Hidden borders
+          fieldset
+            legend #[label #[input(type="checkbox")] Defilante]
+            label #[input(type="number" value=-1)] Speed
+            label #[input(type="number" value=-1)] Acceleration
+            label #[input(type="number" value=-1)] Max speed
+            label #[input(type="checkbox")] Free scroll
+          fieldset
+            legend #[label #[input(type="checkbox")] Background]
+            label #[input(type="checkbox")] Holes
+            label #[input(type="checkbox")] Cheeses
+            label #[input(type="checkbox")] Decoration
+            label #[input(type="checkbox")] Images
+            label #[input(type="checkbox")] Joints
+            label #[input(type="checkbox")] Grounds
+          fieldset
+            legend #[label #[input(type="checkbox")] Foreground]
+            label #[input(type="checkbox")] Holes
+            label #[input(type="checkbox")] Cheeses
+            label #[input(type="checkbox")] Objects
+            label #[input(type="checkbox")] Joints
+            label #[input(type="checkbox")] Images
+            label #[input(type="checkbox")] Grounds
+            label #[input(type="checkbox")] Decoration
+      .vertical
+        div#workspace
+          svg#map(width='100%', height='100%', stroke-linecap='round', shape-rendering='geometricPrecision')
+            image(href="images/sprites/DefineSprite_258_$F_6/0.svg", width=800, height=400, transform='scale(1,1)')
+            g#background
+              g#f-holes
+              g#f-cheeses
+              g#f-decoration
+              g#b-images
+              g#b-joints
+              g#b-grounds
+            g#foreground
+              g#f-holes
+              g#f-cheeses
+              g#objects
+              g#f-joints
+              g#f-images
+              g#f-grounds
+              g#f-decoration
+            g#debug
+            rect(x=0, y=0, width=799, height=399, stroke='#00ffff', fill='transparent', stroke-width=1, shape-rendering='crispEdges', style={'pointer-events': 'none'})
+        aside#bottom-menu
+          fieldset
+            legend XML
+            textarea#xml
+            input(type="button", onclick='loadXML();', value='Load')
+            input(type="button", onclick='loadXML();', value='Export')
+          fieldset.no-padding.xml(style={'overflow-y': 'auto'})
+            legend XML
+            #tree.table                
+      aside#right-menu
+        fieldset.no-padding.tags
+          legend Tags
+          table
+            tr
+              td #[input(type="text", placeholder="c", value="c")]
+              td #[input(type="text", placeholder="d8a934,20", value="d8a934,20")]
+              td #[input(type="button", value="×")]
+            tr
+              td #[input(type="text", placeholder="P2", value="P2")]
+              td #[input(type="text", placeholder="353,286", value="353,286")]
+              td #[input(type="button", value="×")]
+            tr
+              td #[input(type="text", placeholder="P1", value="P1")]
+              td #[input(type="text", placeholder="328,286", value="328,286")]
+              td #[input(type="button", value="×")]
+          //- input(type='color')
+    script(type="application/javascript", src="main.js")
